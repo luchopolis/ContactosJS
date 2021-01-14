@@ -1,8 +1,21 @@
 const express = require('express')
+const handlebars = require('express-handlebars')
+const bodyParser = require('body-parser')
+
 const app = express()
 const port = 3000
 
-const handlebars = require('express-handlebars')
+
+app.use(express.static('public'))
+app.use(bodyParser.json())
+
+/* Routes */
+
+//apiRoutes
+const {apiApp} = require('./routes/apiRoutes')
+
+apiApp(app)
+
 
 // app.set('view engine','handlebars')
 app.set('view engine','hbs')
@@ -15,6 +28,7 @@ app.set('view engine','hbs')
 //default layout le indica que se usará la plantilla index.hbs
 app.engine('hbs',handlebars({
     layoutsDir:__dirname + "/views/layouts",
+    partialsDir: __dirname + "/views/partials",
     extname:'hbs',
     defaultLayout: 'index'
 }))
@@ -26,9 +40,12 @@ app.engine('hbs',handlebars({
 app.get('/',(req,res,next) => {
     // res.render('main', {layout : 'index'})
     //se usa
-    res.render('main')
+    res.render('main',{name:"Luis"})
 })
-app.use(express.static('public'))
+
+
+
+
 
 app.listen(port,(err) => {
     console.log("port 3000 ")
