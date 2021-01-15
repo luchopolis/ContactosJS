@@ -1,0 +1,43 @@
+body{
+    display: flex;
+    align-items: center;
+    height: 1000px;
+    background-color: #3c3a3a;
+}
+.login_box{
+    width: 60%;
+    margin: auto;
+}
+.login_body{
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px 1px #ffffff;
+    padding-top: 10px;
+}
+
+.form_login{
+    display: flex;
+    width: 100%;
+    text-align: center;
+    
+}
+
+.input_login{
+    width: 80%;
+    background: #212020 !important;
+    color: white;
+    font-size: 18px;
+}
+
+.form_button_login{
+    text-align: center;
+}
+
+label{
+    color: white;
+}
+
+.loginSubmit{
+    color: white !important;
+}
