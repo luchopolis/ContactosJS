@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../css/skeleton.css">
     <link rel="stylesheet" type="text/css" href="../css/login.css">
+    <link rel="stylesheet" type="text/css" href="../css/register.css">
 
     <title>Login Contacs</title>
 </head>
@@ -13,5 +14,15 @@
     <div class="container">
         {{{body}}}
     </div>
+    
+    <script src="../js/createContact.js"></script>
+    <script>
+        let btnCreate = document.getElementById("create_btn")
+
+        btnCreate.addEventListener('click',(e) => {
+            e.preventDefault()
+            createContact()
+        })
+    </script>
 </body>
 </html>

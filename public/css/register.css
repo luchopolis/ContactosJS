@@ -4,11 +4,11 @@ body{
     height: 800px;
     background-color: #3c3a3a;
 }
-.login_box{
+.register_box{
     width: 60%;
     margin: auto;
 }
-.login_body{
+.register_body{
     display: flex;
     justify-content: center;
     border-radius: 10px;
@@ -16,21 +16,21 @@ body{
     padding-top: 10px;
 }
 
-.form_login{
+.form_register{
     display: flex;
     width: 100%;
     text-align: center;
     
 }
 
-.input_login{
+.input_register{
     width: 80%;
     background: #212020 !important;
     color: white;
     font-size: 18px;
 }
 
-.form_button_login{
+.form_button_register{
     text-align: center;
 }
 
@@ -38,6 +38,6 @@ label{
     color: white;
 }
 
-.loginSubmit{
+.registerSubmit{
     color: white !important;
 }

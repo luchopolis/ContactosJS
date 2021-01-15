@@ -1,29 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />  
-    <title>My Awesome App</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <link rel="stylesheet" type="text/css" href="../css/header.css" />
-    <link rel="stylesheet" type="text/css" href="../css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="../css/skeleton.css">
-    <link rel="stylesheet" type="text/css" href="../css/bodyContactos.css">
-    <link rel="stylesheet" type="text/css" href="../css/textColors.css">
 
-    <style>
-      *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>My Awesome App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="stylesheet" type="text/css" href="../css/header.css" />
+  <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="../css/skeleton.css">
+  <link rel="stylesheet" type="text/css" href="../css/bodyContactos.css">
+  <link rel="stylesheet" type="text/css" href="../css/textColors.css">
+  <link rel="stylesheet" type="text/css" href="../css/floatingButton.css">
 
-    </style>
-  </head>
-  <body>
-          
-          {{{body}}}    
-  
-  <script src="../js/loadContacts.js"></script>
-  </body>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ,
+    body {
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+
+  {{{body}}}
+  <div class="floating_button" id="floating_btn">
+    <div class="circle_button">
+      <div class="body_button">
+        +
+      </div>
+    </div>
+  </div>
+  {{!-- <script src="../js/loadContacts.js"></script> --}}
+  <script>
+    let floating_btn = document.querySelector("#floating_btn")
+
+    floating_btn.addEventListener('click',() => {
+      window.location.href = "/create"
+    })
+  </script>
+</body>
+
 </html>

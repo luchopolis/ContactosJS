@@ -30,7 +30,7 @@ class ContactModel {
         const query = util.promisify(this.conexion.conexion.query).bind(this.conexion.conexion)
         
         try {
-            const execQuery = query(`SELECT Nombre,Email,PhoneNumber FROM ${this.tableName} WHERE User_id = ${UserId}`)
+            const execQuery = query(`SELECT Nombre,Email,PhoneNumber FROM ${this.tableName} WHERE User_id = ${UserId} ORDER BY id DESC`)
             
             return execQuery
         

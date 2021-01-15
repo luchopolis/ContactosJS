@@ -1,0 +1,33 @@
+.floating_button{
+    width: 60px;
+    height: 60px;
+    background-color: rgb(89, 124, 136);
+    border-radius: 100%;
+    display: flex;
+    align-content: center;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    position: sticky;
+    right: 60px;
+    float: right;
+    bottom: 60px;
+    cursor: pointer;
+}
+
+.floating_button:hover{
+    background-color: rgb(86, 134, 151);
+}
+
+.circle_button{
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.body_button{
+    font-size: 30px;
+    color: white;
+}
+
+.body_button:hover{
+    color: black;
+}
