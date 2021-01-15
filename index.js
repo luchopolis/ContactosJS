@@ -17,6 +17,10 @@ const {apiApp} = require('./routes/apiRoutes')
 apiApp(app)
 
 
+//Web Routes
+const {webRoute} = require('./routes/web')
+webRoute(app)
+
 // app.set('view engine','handlebars')
 app.set('view engine','hbs')
 
@@ -37,13 +41,11 @@ app.engine('hbs',handlebars({
 
 //el {layout: indes} es para indicar cual será la plantilla inicial
 //Otra forma es haciendo en el las propiedades del objeto handlebars creado anteriormente
-app.get('/',(req,res,next) => {
-    // res.render('main', {layout : 'index'})
-    //se usa
-    res.render('main',{name:"Luis"})
-})
-
-
+// app.get('/',(req,res,next) => {
+//     // res.render('main', {layout : 'index'})
+//     //se usa
+//     res.render('main',{name:"Luis"})
+// })
 
 
 
