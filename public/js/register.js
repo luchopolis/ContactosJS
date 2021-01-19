@@ -19,6 +19,7 @@ btnRegister.addEventListener("click",(e) => {
     .then(response => {
         if(response.ok){
             console.log("Usuario creado")
+            location.reload()
         }
     })
     

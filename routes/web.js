@@ -21,6 +21,7 @@ router.get('/login',(req,res,next) => {
 })
 
 router.get('/register',(req,res,next) => {
+    req.flash('prueba','hola')
     res.render('register',{layout: ''})
 })
 

@@ -18,6 +18,9 @@
             <div class="column">
                 <div class="row" style="color: white;">
                     <h5>Registrarse</h5>
+                    {{#if success_msg}}
+                        <h5>{{success_msg}}</h5>
+                    {{/if}}
                 </div>
                 <div class="row">
                     <label for="UserName">Nombre de usuario</label>

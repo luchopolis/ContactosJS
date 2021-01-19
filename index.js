@@ -3,6 +3,11 @@ const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 
 const passport = require("passport")
+const session = require('express-session');
+const flash = require('connect-flash');
+
+
+
 
 const app = express()
 const port = 3000
@@ -10,17 +15,41 @@ const port = 3000
 
 app.use(express.static('public'))
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:false}))
+
+
+app.use(session({
+    secret:"secret",
+    resave:true,
+    saveUninitialized:true
+}))
+
+
+app.use(flash())
+
+app.use((req,res,next)=>{
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg')
+    res.locals.prueba = req.flash('prueba')
+    next()
+})
+
+
+app.use(passport.initialize());
+app.use(passport.session());
+require("./strategies/passport")(passport)
+
+
 
 /* Routes */
 
 //apiRoutes
 const {apiApp} = require('./routes/apiRoutes')
-
 apiApp(app)
 
 
 //Web Routes
-const {webRoute} = require('./routes/web')
+const {webRoute} = require('./routes/web');
 webRoute(app)
 
 // app.set('view engine','handlebars')
@@ -47,6 +76,7 @@ app.engine('hbs',handlebars({
 //     //se usa
 //     res.render('main',{name:"Luis"})
 // })
+
 
 
 

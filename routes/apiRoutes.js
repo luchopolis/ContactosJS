@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const passport = require("passport")
+
 
 const ContactModel = require('../models/ContacModel')
 const UserModel = require('../models/UserModel')
@@ -8,12 +8,15 @@ const UserModel = require('../models/UserModel')
 //Util bcrypt
 const bcrypt = require("bcrypt")
 
+const passport = require("passport")
+
 
 let contacto = new ContactModel()
 
 //Constructor function to set the route
 function apiApp(app){
     app.use('/api',router)
+
 }
 
 //** !START THE ROUTES FOR CONTACS */
@@ -65,7 +68,7 @@ router.post('/User/Register',(req,res,next) => {
                 let User = new UserModel(UserName,passHashed)
                 try {
                     await User.createUser()
-
+                    req.flash('success_msg','Puedes iniciar sesion ahora')
                     res.status(200).end()
                 } catch (error) {
                     if(error) throw error
@@ -79,25 +82,13 @@ router.post('/User/Register',(req,res,next) => {
     }
 })
 
-router.get('/User/login',async (req,res,next) => {
-    // passport.authenticate('local',{
-    //     successRedirect: '/',
-    //     failureRedirect: '/login'
-    // })(req,res,next);
+router.post('/User/login',(req,res,next) => {
+    passport.authenticate('local',{
+        successRedirect: '/',
+        failureRedirect: '/login'
+    })(req,res,next)
 
-    try {
-        let User = new UserModel("Caballero","Caballero1")
-        let a = await User.findUser()
-
-        
-        if(a[0]){
-            console.log("Usuario existe")
-        }else{
-            console.log("Usuario no existe")
-        }
-    } catch (error) {
-        
-    }
+  
     
 })
 /* END  */
