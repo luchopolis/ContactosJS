@@ -2,6 +2,8 @@ const express = require('express')
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 
+const passport = require("passport")
+
 const app = express()
 const port = 3000
 
@@ -33,8 +35,7 @@ app.set('view engine','hbs')
 app.engine('hbs',handlebars({
     layoutsDir:__dirname + "/views/layouts",
     partialsDir: __dirname + "/views/partials",
-    extname:'hbs',
-    defaultLayout: 'index'
+    extname:'hbs'
 }))
 
 

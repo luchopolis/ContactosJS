@@ -1,4 +1,18 @@
-<div class="register_box">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/register.css">
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../css/skeleton.css">
+    <title>Register</title>
+</head>
+<body>
+    <div class="container">
+
+    
+    <div class="register_box">
     <div class="register_body">
         <form action="" class="form_register">
             <div class="column">
@@ -7,22 +21,32 @@
                 </div>
                 <div class="row">
                     <label for="UserName">Nombre de usuario</label>
-                    <input type="text" name="UserName" class="input_register" id="">
+                    <input type="text" name="UserName" class="input_register" id="UserName">
 
                 </div>
                 <div class="row">
                     <label for="Password">Contraseña</label>
-                    <input type="password" name="Password" class="input_register" id="">
+                    <input type="password" name="Password" class="input_register" id="Password">
                 </div>
 
                 
                 <div class="form_button_register">
-                    <input type="submit" class="submit input registerSubmit" value="Registrarse">
+                    <input type="submit" class="submit input registerSubmit" value="Registrarse" id="btnRegister">
                 </div>
+                <a href="/login">
+                    Iniciar sesión
+                </a>
             </div>
 
             
         </form>
         
+        </div>
     </div>
-</div>
+
+    </div>
+
+    <script src="../js/register.js"></script>
+</body>
+</html>
+

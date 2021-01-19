@@ -12,7 +12,7 @@ router.get("/",async (req,res,next) => {
 
     let contactos = await loadContacts()
    
-    res.render('main',{contactos: contactos})
+    res.render('main',{layout:'index',contactos: contactos})
     
 })
 
@@ -21,7 +21,7 @@ router.get('/login',(req,res,next) => {
 })
 
 router.get('/register',(req,res,next) => {
-    res.render('register',{layout: 'formsLayout'})
+    res.render('register',{layout: ''})
 })
 
 router.get('/create',(req,res,next) => {
