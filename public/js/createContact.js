@@ -1,6 +1,7 @@
 let Name = document.getElementById("Nombre")
 let Email = document.getElementById("Email")
 let PhoneNumber = document.getElementById("PhoneNumber")
+let user_id = document.getElementById("user_id")
 
 function createContact(){
     if(!Email.value.includes("@")){
@@ -13,7 +14,7 @@ function createContact(){
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                User_id: 1,
+                User_id: user_id.value,
                 Nombre: Name.value,
                 Email: Email.value,
                 PhoneNumber: PhoneNumber.value

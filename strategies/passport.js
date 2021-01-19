@@ -5,16 +5,19 @@ const UserModel = require('../models/UserModel')
 
 module.exports = function(passport){
 
-    
+    let user = ""
+
     passport.use(
         new LocalStrategy({usernameField:'username'},async (username,password,done)=>{
             
             
-            let user = new UserModel(username,password)
+            user = new UserModel(username,password)
             
             try {
                 let find = await user.findUser()
-                
+                if(!find.length){
+                    return done(null,false,{message:'el usuario no existe'})
+                }
                 
                 if(find[0]){
 
@@ -24,16 +27,16 @@ module.exports = function(passport){
                         if(isMatch){
                             console.log("Algo")
                             return done(null,find[0])
-                        }else{
-                            console.log("Algo 2")
-                            return done(null,false,{message : 'pass incorrect'})
                         }
+                        
+                        return done(null,false,{ message: 'Contraseña incorrecta' })
+                    
                     })
                    
                 }
 
             } catch (error) {
-                return done(error)
+                console.log(error)
             }
             
             
@@ -43,10 +46,13 @@ module.exports = function(passport){
     )
     passport.serializeUser(function(user,done){
         console.log("login espera")
-        done(null,user)
+        done(null,user.id)
     })
-    passport.deserializeUser(function(id,done){
-        console.log("Nada")
-        done(null,"nada")
+    passport.deserializeUser(async function(id,done){
+
+        let usuarioFind = await user.findById(id)
+        
+        return done(null,usuarioFind)
+        
     })
 }

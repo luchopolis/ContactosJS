@@ -20,9 +20,10 @@ function apiApp(app){
 }
 
 //** !START THE ROUTES FOR CONTACS */
-router.get('/Contactos',async function(req,res,next){
+router.get('/Contactos/:user_id',async function(req,res,next){
     try {
-        const results = await contacto.getContacts(1)
+        console.log(req.user)
+        const results = await contacto.getContacts(req.params.user_id)
 
         res.status(200).json(results)
     } catch (error) {
@@ -85,7 +86,8 @@ router.post('/User/Register',(req,res,next) => {
 router.post('/User/login',(req,res,next) => {
     passport.authenticate('local',{
         successRedirect: '/',
-        failureRedirect: '/login'
+        failureRedirect: '/login',
+        failureFlash:true
     })(req,res,next)
 
   

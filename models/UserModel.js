@@ -34,9 +34,23 @@ class UserModel {
         try {
             const query = util.promisify(this.conexion.conexion.query).bind(this.conexion.conexion)
 
-            const find = query(`SELECT UserName,Password from ${this.tableName} WHERE UserName = "${this.UserName}"`)
+            const find = query(`SELECT id,UserName,Password from ${this.tableName} WHERE UserName = "${this.UserName}"`)
 
             return find
+
+            
+        } catch (error) {
+            return error
+        }
+    }
+
+    async findById(id){
+        try {
+            const query = util.promisify(this.conexion.conexion.query).bind(this.conexion.conexion)
+
+            const user = query(`SELECT id,UserName from ${this.tableName} WHERE id = "${id}"`)
+
+            return user
 
             
         } catch (error) {

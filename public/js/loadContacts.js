@@ -1,8 +1,8 @@
 const fetch = require('node-fetch')
 
-function loadContacts(){
+function loadContacts(user_id){
     return new Promise((resolve,reject) => {
-        fetch("http://localhost:3000/api/contactos")
+        fetch(`http://localhost:3000/api/contactos/${user_id}`)
         .then(data => data.json())
         .then(contactos => {
     

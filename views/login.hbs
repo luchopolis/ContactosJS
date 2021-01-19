@@ -4,6 +4,15 @@
             <div class="column">
                 <div class="row" style="color: white;">
                     <h5>Iniciar sesión</h5>
+                    {{#if error}}
+                        <h5>{{error}}</h5>
+                    {{/if}}
+                    {{#if error_msg}}
+                        <h5>{{error_msg}}</h5>
+                    {{/if}}
+                    {{#if success_msg}}
+                        <h5>{{success_msg}}</h5>
+                    {{/if}}
                 </div>
                 <div class="row">
                     <label for="UserName">Nombre de usuario</label>

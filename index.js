@@ -15,7 +15,7 @@ const port = 3000
 
 app.use(express.static('public'))
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended:false}))
+app.use(express.urlencoded({extended:false}))
 
 
 app.use(session({
@@ -30,14 +30,14 @@ app.use(flash())
 app.use((req,res,next)=>{
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg')
-    res.locals.prueba = req.flash('prueba')
+    res.locals.error = req.flash('error')
     next()
 })
 
-
+require("./strategies/passport")(passport)
 app.use(passport.initialize());
 app.use(passport.session());
-require("./strategies/passport")(passport)
+
 
 
 
