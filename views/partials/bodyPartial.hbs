@@ -4,23 +4,23 @@
             <div class="contactos column" id="listContactos">
                 {{#if contactos}}
                 {{#each contactos}}
-                    <div class="contactoCard">
-                    <div class="card_header">
-                        <div class="card_header_contactoName text-white">
-                            {{this.Nombre}}
-                        </div>
-                    </div>
-                    <div class="card_body">
-                        <div class="card_body_contactoInfo">
-                            <div class="email text-white">
-                                {{this.Email}}
-                            </div>
-                            <div class="phonenumber text-white">
-                                {{this.PhoneNumber}}
+                    <div class="contactoCard" id="{{this.id}}">
+                        <div class="card_header">
+                            <div class="card_header_contactoName text-white">
+                                {{this.Nombre}}
                             </div>
                         </div>
+                        <div class="card_body">
+                            <div class="card_body_contactoInfo">
+                                <div class="email text-white">
+                                    {{this.Email}}
+                                </div>
+                                <div class="phonenumber text-white">
+                                    {{this.PhoneNumber}}
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
                 {{/each}}
                 {{else}}
                 

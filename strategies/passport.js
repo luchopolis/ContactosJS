@@ -25,7 +25,7 @@ module.exports = function(passport){
                         if (error) throw error
 
                         if(isMatch){
-                            console.log("Algo")
+                            //console.log("Algo")
                             return done(null,find[0])
                         }
                         
@@ -45,7 +45,7 @@ module.exports = function(passport){
       
     )
     passport.serializeUser(function(user,done){
-        console.log("login espera")
+        //console.log("login espera")
         done(null,user.id)
     })
     passport.deserializeUser(async function(id,done){

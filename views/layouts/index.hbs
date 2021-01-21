@@ -40,7 +40,20 @@
   {{!-- <script src="../js/loadContacts.js"></script> --}}
   <script>
     let floating_btn = document.querySelector("#floating_btn")
+    let card = document.getElementsByClassName("contactoCard")
+    
+    for(let i = 0;i < card.length;i++){
+      card[i].style.cursor = "pointer"
 
+      card[i].addEventListener('click',(e) => {
+        console.log(card[i].id)
+      })
+    }
+
+    function changeContact(id){
+      //Cambiar a la ventana de edicion
+    }
+    
     floating_btn.addEventListener('click',() => {
       window.location.href = "/create"
     })

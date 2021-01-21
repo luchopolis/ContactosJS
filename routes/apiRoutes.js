@@ -22,7 +22,7 @@ function apiApp(app){
 //** !START THE ROUTES FOR CONTACS */
 router.get('/Contactos/:user_id',async function(req,res,next){
     try {
-        console.log(req.user)
+        //console.log(req.user)
         const results = await contacto.getContacts(req.params.user_id)
 
         res.status(200).json(results)
@@ -50,6 +50,10 @@ router.post('/Contactos',async function(req,res,next){
     }
 })
 
+
+router.put('/Contactos/:id',(req,res,next) => {
+    
+})
 
 
 
