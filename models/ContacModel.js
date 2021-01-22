@@ -51,6 +51,33 @@ class ContactModel {
         }
     }
     
+    async getById(id){
+        try {
+            const query = util.promisify(this.conexion.conexion.query).bind(this.conexion.conexion)
+
+            const execQuery = query(`SELECT * FROM ${this.tableName} WHERE id = ${id}`)
+
+            return execQuery
+        } catch (error) {
+            console.log("Error consultando contacto")
+        }
+    }
+
+    async update(id,values){
+        try {
+            const query = util.promisify(this.conexion.conexion.query).bind(this.conexion.conexion)
+            
+            const execQuery = query(`UPDATE ${this.tableName} SET Nombre="${values.Nombre}",Email="${values.Email}",PhoneNumber="${values.PhoneNumber}"  WHERE id = ${id}`)
+         
+            return execQuery
+        } catch (error) {
+            if (error) {
+                console.log("Error actualizando contacto")
+                throw error
+            }
+            
+        }
+    }
 }
 
 module.exports = ContactModel;

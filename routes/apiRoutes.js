@@ -51,8 +51,33 @@ router.post('/Contactos',async function(req,res,next){
 })
 
 
-router.put('/Contactos/:id',(req,res,next) => {
+router.get('/Contactos/edit/:id',async (req,res,next) => {
+    try {
+        let result = await contacto.getById(req.params.id)
+
+        res.status(200).json({
+            contacto:result
+        })
+    } catch (error) {
+        if (error) throw error
+    }
+})  
+
+router.put('/Contactos/:id',async (req,res,next) => {
+    try {
+
+        let values = req.body
+        await contacto.update(req.params.id,values)
+
+        
+        res.status(200).json({
+            result: "Complete"
+        })
+      
     
+    } catch (error) {
+        
+    }
 })
 
 

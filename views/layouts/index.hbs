@@ -46,12 +46,13 @@
       card[i].style.cursor = "pointer"
 
       card[i].addEventListener('click',(e) => {
-        console.log(card[i].id)
+        changeContact(card[i].id)
       })
     }
 
     function changeContact(id){
       //Cambiar a la ventana de edicion
+      window.location.href =  `/update/${id}`
     }
     
     floating_btn.addEventListener('click',() => {

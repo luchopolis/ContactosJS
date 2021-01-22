@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../css/skeleton.css">
+    <link rel="stylesheet" type="text/css" href="../css/login.css">
+    <title>Editar contacto</title>
+</head>
+<body>
+    <div class="container">
+        <div class="create_box">
+            <form action="">
+                <div class="column">
+                    {{#if contacto}}
+    
+                    <input type="text" value="{{contacto.id}}" id="contact_id" hidden>
+                    <div class="row">
+                        <label for="">Nombre</label>
+                        <input type="text" name="Nombre" id="Nombre" value="{{contacto.Nombre}}">
+                    </div>
+                    <div class="row">
+                        <label for="">Email</label>
+                        <input type="text" name="Email" id="Email" value="{{contacto.Email}}">
+                    </div>
+                    <div class="row">
+                        <label for="">PhoneNumber</label>
+                        <input type="text" name="PhoneNumber" id="PhoneNumber" value="{{contacto.PhoneNumber}}">
+                    </div>
+                    {{/if}}
+                    <div class="row">
+                        <input type="submit" class="submit input" id="update_btn" style="color: white;" value="Editar">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        let Name = document.getElementById("Nombre")
+        let Email = document.getElementById("Email")
+        let PhoneNumber = document.getElementById("PhoneNumber")
+        let contacto_id = document.getElementById("contact_id")
+
+        let update = document.getElementById("update_btn")
+
+        update.addEventListener('click',(e) => {
+            e.preventDefault()
+
+            fetch(`http://localhost:3000/api/Contactos/${contacto_id.value}`,
+            {
+                method:"PUT",
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                body:JSON.stringify({
+                    Nombre:Name.value,
+                    Email:Email.value,
+                    PhoneNumber:PhoneNumber.value
+                })
+            })
+            .then(respuesta => {
+                if(respuesta.ok){
+                    location.reload
+                    alert("Cambio realizado")
+                    window.location.href = "/"
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            })
+        })
+
+        
+    </script>
+</body>
+</html>

@@ -2,7 +2,7 @@ const express = require("express")
 const router = express.Router()
 const fetch = require('node-fetch')
 
-const loadContacts = require('../public/js/loadContacts')
+const {loadContacts,getContact} = require('../public/js/loadContacts')
 
 
 //middleware authenticate
@@ -40,5 +40,13 @@ router.get('/logout',(req,res,next) => {
 
 router.get('/create',(req,res,next) => {
     res.render('create',{layout: 'formsLayout',user:req.user[0]})
+})
+
+router.get('/update/:id',async (req,res,next) => {
+
+    let result = await getContact(req.params.id)
+    let contacto = result["contacto"][0]
+    
+    res.render('editarContacto',{layout: '',contacto:contacto})
 })
 module.exports = {webRoute}
