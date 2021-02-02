@@ -20,3 +20,6 @@ Inicia con " /api "
 |Rutas|Descripción  |Método HTTP|
 |--|--|--|
 | / |  Página principal, muestra los contactos | GET|
+
+
+**AUN FALTA DETALLAR LAS RUTAS**
